@@ -14,7 +14,7 @@
 	<groupId>com.vp</groupId>
 	<artifactId>edumaster-backend</artifactId>
 	<version>1.0.0</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>EduMaster Backend</name>
 
 	<properties>

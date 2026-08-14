@@ -15,10 +15,5 @@ public class EdumasterApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
         SpringApplication.run(EdumasterApplication.class, args);
-        System.out.println("========================================");
-        System.out.println("✅ EduMaster Application Started!");
-        System.out.println("🌐 Access at:http://localhost:8081");
-        System.out.println("========================================");
-  
     }
 }

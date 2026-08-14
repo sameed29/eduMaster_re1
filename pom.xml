@@ -14,8 +14,6 @@
 	<groupId>com.vp</groupId>
 	<artifactId>edumaster-backend</artifactId>
 	<version>1.0.0</version>
-
-	<!-- 1. CHANGE PACKAGING TO WAR -->
 	<packaging>war</packaging>
 
 	<name>EduMaster Backend</name>
@@ -28,17 +26,28 @@
 		<!-- Spring Boot Web -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-mail</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+
+		<!-- Embedded Tomcat for Executable WAR -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+		</dependency>
+
+		<!-- Mail Service -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+
+		<!-- Razorpay Payment SDK -->
 		<dependency>
 			<groupId>com.razorpay</groupId>
 			<artifactId>razorpay-java</artifactId>
 			<version>1.4.5</version>
 		</dependency>
+
 		<!-- Spring Boot Data JPA -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -64,23 +73,20 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- 2. REMOVE <scope>provided</scope> SO JASPER IS BUNDLED FOR DOCKER -->
+		<!-- Tomcat Jasper (JSP Compiler) for Embedded Tomcat -->
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>
 		</dependency>
 
-		<!-- JSTL -->
+		<!-- Jakarta JSTL for Spring Boot 3 -->
 		<dependency>
 			<groupId>jakarta.servlet.jsp.jstl</groupId>
 			<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
-			<version>3.0.0</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.glassfish.web</groupId>
 			<artifactId>jakarta.servlet.jsp.jstl</artifactId>
-			<version>3.0.1</version>
 		</dependency>
 
 		<!-- Lombok -->
@@ -90,21 +96,14 @@
 			<optional>true</optional>
 		</dependency>
 
-		<!-- Cloudinary -->
+		<!-- Cloudinary SDK -->
 		<dependency>
 			<groupId>com.cloudinary</groupId>
 			<artifactId>cloudinary-http44</artifactId>
 			<version>1.36.0</version>
 		</dependency>
 
-		<!-- Apache Commons FileUpload -->
-		<dependency>
-			<groupId>commons-fileupload</groupId>
-			<artifactId>commons-fileupload</artifactId>
-			<version>1.5</version>
-		</dependency>
-
-		<!-- Apache Commons IO -->
+		<!-- Apache Commons IO (Kept for file utility functions) -->
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
@@ -125,7 +124,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>

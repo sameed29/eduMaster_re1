@@ -4,15 +4,15 @@ WORKDIR /app
 COPY . .
 RUN mvn clean package -DskipTests
 
-# Stage 2: Run
-FROM eclipse-temurin:17-jre-alpine
+# Stage 2: Run (Uses JDK so Tomcat Jasper can compile JSP files)
+FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /app
+
 COPY --from=build /app/target/*.war app.war
 
-# Memory tuning for Render 512MB limit
+# JVM limits for Render 512MB RAM tier
 ENV JAVA_OPTS="-Xms128m -Xmx256m -XX:MaxMetaspaceSize=128m -XX:+UseG1GC"
 
 EXPOSE 10000
 
-# Extract WAR to allow Tomcat's JSP compiler (Jasper) to serve JSP views properly
-ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -Djdt.compiler.useSingleThread=true -jar app.war"]
+ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.war"]

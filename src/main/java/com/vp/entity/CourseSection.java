@@ -151,25 +151,5 @@ public class CourseSection {
 		this.updatedAt = updatedAt;
 	}
 
-	public CourseSection(Long id, Course course, String title, String description, Integer orderIndex,
-			Integer displayOrder, List<CourseContent> contents, Boolean isActive, LocalDateTime createdAt,
-			LocalDateTime updatedAt) {
-		super();
-		this.id = id;
-		this.course = course;
-		this.title = title;
-		this.description = description;
-		this.orderIndex = orderIndex;
-		this.displayOrder = displayOrder;
-		this.contents = contents;
-		this.isActive = isActive;
-		this.createdAt = createdAt;
-		this.updatedAt = updatedAt;
-	}
-
-	public CourseSection() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
     
 }

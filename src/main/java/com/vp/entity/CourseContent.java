@@ -321,44 +321,6 @@ public class CourseContent {
 		this.updatedAt = updatedAt;
 	}
 
-	public CourseContent() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public CourseContent(Long id, CourseSection section, String title, String contentType, Integer orderIndex,
-			String videoUrl, String videoFileName, String fileUrl, String duration, Integer durationSeconds,
-			String transcript, String documentFileName, Long fileSize, String description, Boolean downloadable,
-			String instructions, String estimatedTime, Double estimatedHours, Boolean allowSubmission,
-			List<String> resources, Boolean isActive, Boolean isPreview, LocalDateTime createdAt,
-			LocalDateTime updatedAt) {
-		super();
-		this.id = id;
-		this.section = section;
-		this.title = title;
-		this.contentType = contentType;
-		this.orderIndex = orderIndex;
-		this.videoUrl = videoUrl;
-		this.videoFileName = videoFileName;
-		this.fileUrl = fileUrl;
-		this.duration = duration;
-		this.durationSeconds = durationSeconds;
-		this.transcript = transcript;
-		this.documentFileName = documentFileName;
-		this.fileSize = fileSize;
-		this.description = description;
-		this.downloadable = downloadable;
-		this.instructions = instructions;
-		this.estimatedTime = estimatedTime;
-		this.estimatedHours = estimatedHours;
-		this.allowSubmission = allowSubmission;
-		this.resources = resources;
-		this.isActive = isActive;
-		this.isPreview = isPreview;
-		this.createdAt = createdAt;
-		this.updatedAt = updatedAt;
-	}
-
 	
 }
 

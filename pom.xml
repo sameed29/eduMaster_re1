@@ -14,7 +14,10 @@
 	<groupId>com.vp</groupId>
 	<artifactId>edumaster-backend</artifactId>
 	<version>1.0.0</version>
-	<packaging>jar</packaging>
+
+	<!-- 1. CHANGE PACKAGING TO WAR -->
+	<packaging>war</packaging>
+
 	<name>EduMaster Backend</name>
 
 	<properties>
@@ -48,26 +51,23 @@
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 
-		
-
 		<!-- Validation -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 
-		<!-- PostgreSQL Driver ONLY -->
+		<!-- PostgreSQL Driver -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- JSP Support -->
+		<!-- 2. REMOVE <scope>provided</scope> SO JASPER IS BUNDLED FOR DOCKER -->
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>
-			<scope>provided</scope>
 		</dependency>
 
 		<!-- JSTL -->

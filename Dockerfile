@@ -9,5 +9,10 @@ FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 COPY --from=build /app/target/*.war app.war
 
+# Set memory limits via environment variables for JVM inside container
+ENV JAVA_OPTS="-Xms128m -Xmx256m -XX:MaxMetaspaceSize=128m -XX:+UseG1GC"
+
 EXPOSE 10000
-ENTRYPOINT ["java", "-jar", "app.war"]
+
+# Pass JAVA_OPTS into the entrypoint command
+ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.war"]

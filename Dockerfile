@@ -9,10 +9,10 @@ FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 COPY --from=build /app/target/*.war app.war
 
-# Set memory limits via environment variables for JVM inside container
+# Memory tuning for Render 512MB limit
 ENV JAVA_OPTS="-Xms128m -Xmx256m -XX:MaxMetaspaceSize=128m -XX:+UseG1GC"
 
 EXPOSE 10000
 
-# Pass JAVA_OPTS into the entrypoint command
-ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.war"]
+# Extract WAR to allow Tomcat's JSP compiler (Jasper) to serve JSP views properly
+ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -Djdt.compiler.useSingleThread=true -jar app.war"]
